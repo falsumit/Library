@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://falsumit.github.io/normalize.css/normalize.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
     <link rel="stylesheet" href="./style.css">
     <script src="./script.js" defer></script>
     <title>Library</title>
@@ -20,10 +19,10 @@
             <h2>Add a new book</h2>
             <form action="" id="newBook">
                 <label for="book_title">Title*</label>
-                <input type="text" id="book_title" name="book_title" required>
+                <input type="text" id="book_title" name="book_title" placeholder="Book Title" required>
 
                 <label for="book_author">Author*</label>
-                <input type="text" id="book_author" name="book_author" required>
+                <input type="text" id="book_author" name="book_author" placeholder="Author's Name" required>
 
                 <label for="book_genre">Genre</label>
                 <select name="book_genre" id="book_genre">
@@ -35,7 +34,7 @@
                 </select>
 
                 <label for="book_release">Release Date</label>
-                <input type="number" id="book_release" name="book_release" min="4" max="4">
+                <input type="number" id="book_release" name="book_release" min="4" max="4" placeholder="2023">
 
                 <button type="submit" id="add_book">Add book</button>
                 <button type="submit" id="cancel_book" formnovalidate>Cancel</button>
