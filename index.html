@@ -12,7 +12,7 @@
     <div id="container">
         <div id="navigation">
             <h1 id="heading">Library</h1>
-            <button id="add-book">Add a book</button>
+            <button id="add-book" onclick="addBookToLibrary()">Add a book</button>
         </div>
         
         <div id="popup">
@@ -37,7 +37,7 @@
                 <input type="number" id="book_release" name="book_release" min="4" max="4" placeholder="2023">
 
                 <button type="submit" id="add_book">Add book</button>
-                <button type="submit" id="cancel_book" formnovalidate>Cancel</button>
+                <button type="reset" id="cancel_book" onclick="cancelSubmitBook()">Cancel</button>
             </form>
         </div>
 

@@ -14,18 +14,12 @@ function Book(title, author, genre, release) {
 
 const book1 = new Book('Hello World', 'Jo Mama', 'action', 1990);
 
-// function for adding a new book to library array
 function addBookToLibrary() {
-    const addBook = document.getElementById('add-book');
-    addBook.addEventListener('click', () => {
-        const popup = document.getElementById('popup');
-        popup.style = 'visibility: visible';
-    });
-
-    const submitBook = document.getElementById('submit_book');
-    submitBook.addEventListener('click', () => {
-        popup.style = 'visibility: hidden';
-    });
+    const popup = document.getElementById('popup');
+    popup.style = 'visibility: visible';
 };
 
-addBookToLibrary();
+function cancelSubmitBook() {
+    const popup = document.getElementById('popup');
+    popup.style = 'visibility: hidden';
+}
