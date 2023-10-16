@@ -15,6 +15,33 @@
             <h1 id="heading">Library</h1>
             <button id="add-book">Add a book</button>
         </div>
+        
+        <div id="popup">
+            <h2>Add a new book</h2>
+            <form action="" id="newBook">
+                <label for="book_title">Title*</label>
+                <input type="text" id="book_title" name="book_title" required>
+
+                <label for="book_author">Author*</label>
+                <input type="text" id="book_author" name="book_author" required>
+
+                <label for="book_genre">Genre</label>
+                <select name="book_genre" id="book_genre">
+                    <option value="fiction">Fiction</option>
+                    <option value="non_fiction">Non-Fiction</option>
+                    <option value="biography">Biography</option>
+                    <option value="academic">Academic</option>
+                    <option value="self_help">Self-Help</option>
+                </select>
+
+                <label for="book_release">Release Date</label>
+                <input type="number" id="book_release" name="book_release" min="4" max="4">
+
+                <button type="submit" id="add_book">Add book</button>
+                <button type="submit" id="cancel_book" formnovalidate>Cancel</button>
+            </form>
+        </div>
+
         <div id="content">
             <div class="book">
                 <h3 class="title">Book Title</h3>
