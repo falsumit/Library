@@ -1,52 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang='en'>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://falsumit.github.io/normalize.css/normalize.css">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./script.js" defer></script>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='https://falsumit.github.io/normalize.css/normalize.css'>
+    <link rel='stylesheet' href='./style.css'>
+    <script src='./script.js' defer></script>
     <title>Library</title>
 </head>
 <body>
-    <div id="container">
-        <div id="navigation">
-            <h1 id="heading">Library</h1>
-            <button id="add-book" onclick="addBookToLibrary()">Add a book</button>
+    <div id='container'>
+        <div id='navigation'>
+            <h1 id='heading'>Library</h1>
+            <button id='new_book'>Add a book</button>
         </div>
         
-        <div id="popup">
+        <div id='popup'>
             <h2>Add a new book</h2>
-            <form action="" id="newBook">
-                <label for="book_title">Title*</label>
-                <input type="text" id="book_title" name="book_title" placeholder="Book Title" required>
+            <form id='new-book-form'>
+                <label for='book_title'>Title*</label>
+                <input type='text' id='book_title' name='book_title' placeholder='Book Title' required>
 
-                <label for="book_author">Author*</label>
-                <input type="text" id="book_author" name="book_author" placeholder="Author's Name" required>
+                <label for='book_author'>Author*</label>
+                <input type='text' id='book_author' name='book_author' placeholder='Author's Name' required>
 
-                <label for="book_genre">Genre</label>
-                <select name="book_genre" id="book_genre">
-                    <option value="fiction">Fiction</option>
-                    <option value="non_fiction">Non-Fiction</option>
-                    <option value="biography">Biography</option>
-                    <option value="academic">Academic</option>
-                    <option value="self_help">Self-Help</option>
+                <label for='book_genre'>Genre</label>
+                <select name='book_genre' id='book_genre'>
+                    <option value='Fiction'>Fiction</option>
+                    <option value='Non-Fiction'>Non-Fiction</option>
+                    <option value='Biography'>Biography</option>
+                    <option value='Academic'>Academic</option>
+                    <option value='Self-Help'>Self-Help</option>
                 </select>
 
-                <label for="book_release">Release Date</label>
-                <input type="number" id="book_release" name="book_release" min="4" max="4" placeholder="2023">
+                <label for='book_release'>Release Date</label>
+                <input type='number' id='book_release' name='book_release' min='1000' max='2023' placeholder='2023'>
 
-                <button type="submit" id="add_book">Add book</button>
-                <button type="reset" id="cancel_book" onclick="cancelSubmitBook()">Cancel</button>
+                <button type='submit' id='add_book'>Add book</button>
+                <button type='reset' id='cancel_book'>Cancel</button>
             </form>
         </div>
 
-        <div id="content">
-            <div class="book">
-                <h3 class="title">Book Title</h3>
-                <p class="author">Author</p>
-                <p class="genre">Genre</p>
-                <p class="release">Release Date</p>
+        <div id='content'>
+            <div class='book'>
+                <h3 class='title'>Book Title</h3>
+                <p class='author'>Author</p>
+                <p class='genre'>Genre</p>
+                <p class='release'>Release Date</p>
+            </div>
+            <div id="msg">
+                <pre></pre>
             </div>
         </div>
     </div>
