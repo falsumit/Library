@@ -70,12 +70,26 @@ const addBook = (e) => {
         newBookRelease.classList.toggle('release');
         newBookDiv.appendChild(newBookRelease);
         newBookRelease.textContent = myLibrary[myLibrary.length - 1].release;
+
+        let newBookButtons = document.createElement('div');
+        newBookButtons.classList.toggle('book-buttons');
+        newBookDiv.appendChild(newBookButtons);
+
+        let newReadButton = document.createElement('button');
+        newReadButton.classList.toggle('read-toggle');
+        newReadButton.classList.toggle('unread');
+        newBookButtons.appendChild(newReadButton);
+        newReadButton.textContent = 'Unread';
+
+        let newRemoveButton = document.createElement('button');
+        newRemoveButton.classList.toggle('remove-book');
+        newBookButtons.appendChild(newRemoveButton);
+        newRemoveButton.textContent = 'Remove';
     }
 }
 
 // button controls
 const popup = document.getElementById('popup');
-
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('new_book').addEventListener('click', () => {
         popup.style = 'visibility: visible';
@@ -92,5 +106,20 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('add_book').addEventListener('click', addBook);
     document.getElementById('add_book').addEventListener('click', () => {
         popup.style = 'visibility: hidden';
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.read-toggle').forEach(readButton => {
+        readButton.addEventListener('click', () => {
+            readButton.classList.toggle('unread');
+            readButton.classList.toggle('read');
+        
+            if(readButton.classList.contains('read')) {
+                readButton.textContent = 'Read';
+            } else {
+                readButton.textContent = 'Unread';
+            }
+        });
     });
 });

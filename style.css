@@ -157,6 +157,29 @@ input:last-of-type {
     border-radius: 1rem;
 }
 
+.book p:last-of-type {
+    margin-bottom: 1.5rem;
+}
+
+.book-buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.book-buttons button {
+    width: 100%;
+}
+
+.unread {
+    background: white;
+}
+
+.read {
+    background: var(--bright);
+}
+
 @media screen and (min-width: 600px) {
     h1 {
         text-align: left;
@@ -182,7 +205,7 @@ input:last-of-type {
 
     #content {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 1rem;
     }
 }
