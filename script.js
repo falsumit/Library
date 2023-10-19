@@ -1,5 +1,6 @@
 // array for all the book objects
-const myLibrary = [];
+
+const library = [];
 
 // constructor for a new book object
 class Book {
@@ -9,24 +10,27 @@ class Book {
         this.genre = genre;
         this.release = release;
     }
-
-    synopsis() {
-        return `The book ${title} was written by ${author} in ${release}.`
-    }
 }
 
-// function to add a new book
-const addBook = (e) => {
-    e.preventDefault();
-    
-    let book = new Book(
-        document.getElementById('book_title').value,
-        document.getElementById('book_author').value,
-        document.getElementById('book_genre').value,
-        document.getElementById('book_release').value
-    );
+const form = document.querySelector('form');
 
-    myLibrary.push(book);
+// function to add a new book
+
+const addBook = form.addEventListener('submit', (event) => {
+    event.preventDefault();
+    
+    // let book = new Book(
+    //     document.getElementById('book_title').value,
+    //     document.getElementById('book_author').value,
+    //     document.getElementById('book_genre').value,
+    //     document.getElementById('book_release').value
+    // );
+
+    const bookData = new FormData(form);
+    let book = new Book();
+    book = Object.fromEntries(bookData);
+    library.push(book);
+
     document.querySelector('form').reset();
 
     let content = document.querySelector('#content');
@@ -34,16 +38,16 @@ const addBook = (e) => {
 
     if (firstBook !== null) {
         let title = document.querySelector('.book .title');
-        title.textContent = myLibrary[myLibrary.length - 1].title;
+        title.textContent = library[library.length - 1].title;
     
         let author = document.querySelector('.book .author');
-        author.textContent = myLibrary[myLibrary.length - 1].author;
+        author.textContent = library[library.length - 1].author;
     
         let genre = document.querySelector('.book .genre');
-        genre.textContent = myLibrary[myLibrary.length - 1].genre;
+        genre.textContent = library[library.length - 1].genre;
     
         let release = document.querySelector('.book .release');
-        release.textContent = myLibrary[myLibrary.length - 1].release;
+        release.textContent = library[library.length - 1].release;
 
         firstBook.removeAttribute('id', 'first-book');
     } else {
@@ -54,22 +58,22 @@ const addBook = (e) => {
         let newBookTitle = document.createElement('h3');
         newBookTitle.classList.toggle('title');
         newBookDiv.appendChild(newBookTitle);
-        newBookTitle.textContent = myLibrary[myLibrary.length - 1].title;
+        newBookTitle.textContent = library[library.length - 1].title;
     
         let newBookAuthor = document.createElement('p');
         newBookAuthor.classList.toggle('author');
         newBookDiv.appendChild(newBookAuthor);
-        newBookAuthor.textContent = myLibrary[myLibrary.length - 1].author;
+        newBookAuthor.textContent = library[library.length - 1].author;
     
         let newBookGenre = document.createElement('p');
         newBookGenre.classList.toggle('genre');
         newBookDiv.appendChild(newBookGenre);
-        newBookGenre.textContent = myLibrary[myLibrary.length - 1].genre;
+        newBookGenre.textContent = library[library.length - 1].genre;
     
         let newBookRelease = document.createElement('p');
         newBookRelease.classList.toggle('release');
         newBookDiv.appendChild(newBookRelease);
-        newBookRelease.textContent = myLibrary[myLibrary.length - 1].release;
+        newBookRelease.textContent = library[library.length - 1].release;
 
         let newBookButtons = document.createElement('div');
         newBookButtons.classList.toggle('book-buttons');
@@ -86,26 +90,27 @@ const addBook = (e) => {
         newBookButtons.appendChild(newRemoveButton);
         newRemoveButton.textContent = 'Remove';
     }
-}
+});
 
 // button controls
+
 const popup = document.getElementById('popup');
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('new_book').addEventListener('click', () => {
-        popup.style = 'visibility: visible';
+        popup.style = 'display: block';
     });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('cancel_book').addEventListener('click', () => {
-        popup.style = 'visibility: hidden';
+        popup.style = 'display: none';
     });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('add_book').addEventListener('click', addBook);
     document.getElementById('add_book').addEventListener('click', () => {
-        popup.style = 'visibility: hidden';
+        popup.style = 'display: none';
     });
 });
 

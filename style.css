@@ -8,6 +8,7 @@
 :root {
     --system-font: system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     --offwhite: #f0f0fc;
+    --offdark: #d3d3ee;
     --dark: #353431;
     --bright: #F1DBCE;
     --bright-hover: #e0c1af;
@@ -77,6 +78,10 @@ button:hover {
     margin-bottom: 2rem;
 }
 
+#popup input {
+    width: calc(100% - 2rem);
+}
+
 #popup button {
     width: 100%;
 }
@@ -127,20 +132,20 @@ input:last-of-type {
 }
 
 #popup {
-    visibility: hidden;
+    display: none;
     background: white;
-    padding: 1rem 2rem;
+    padding: 2rem;
     filter: drop-shadow(0 1rem 3rem rgb(0, 0, 0, 0.3));
     border-radius: 1rem;
     z-index: 0;
     position: absolute;
-    top: 25%;
-    right: 25%;
-    bottom: 25%;
-    left: 25%;
+    top: 10%;
+    right: 0;
+    bottom: 0;
+    left: 0;
     margin: 0 auto;
-    width: min-content;
-    height: min-content;
+    width: clamp(20rem, 50%, 30rem);
+    height: clamp(30rem, 50%, 30rem);
 }
 
 #content > div {
@@ -172,12 +177,20 @@ input:last-of-type {
     width: 100%;
 }
 
+.book-buttons button:hover {
+    background: var(--offdark);
+}
+
 .unread {
     background: white;
 }
 
 .read {
-    background: var(--bright);
+    background: var(--offdark);
+}
+
+.remove-book {
+    background: var(--offdark);
 }
 
 @media screen and (min-width: 600px) {
