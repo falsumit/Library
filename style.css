@@ -150,12 +150,6 @@ button.read:hover {
     background: var(--yellow-dark);
 }
 
-button.rm-book {
-    margin-left: 0.5rem;
-}
-
-
-
 @media screen and (min-width: 740px) {
     h1, h2 {
         text-align: left;
@@ -202,5 +196,9 @@ button.rm-book {
 
     div.block {
         margin: unset;
+    }
+
+    button.rm-book {
+        margin-left: 0.5rem;
     }
 }
