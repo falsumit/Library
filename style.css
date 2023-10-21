@@ -1,224 +1,206 @@
-@font-face {
-    font-family: 'Coconat';
-    src: url(./Coconat-Regular.woff2) format(woff2);
-    font-weight: normal;
-    font-style: normal;
-}
-
 :root {
     --system-font: system-ui, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-    --offwhite: #f0f0fc;
-    --offdark: #d3d3ee;
-    --dark: #353431;
-    --bright: #F1DBCE;
-    --bright-hover: #e0c1af;
+    --yellow-dark: #e2a325;
+    --yellow-light: #f5be50;
+    --teal-dark: #19647e;
+    --teal-light: #0dc4ce;
 }
 
-/* Chrome, Safari, Edge, Opera */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input[type=number] {
-  appearance: textfield;
-}
-
-h1, h2, h3, h4, p, a, button, label, input, select, option {
-    color: var(--dark);
-}
-
-h1 {
-    font-family: 'Coconat', Georgia, 'Times New Roman', Times, serif;
-    font-weight: normal;
-    font-size: 3rem;
-    text-align: center;
-    margin: 1.5rem 0;
-}
-
-h2, h3 {
-    margin: 0.5rem 0 1rem 0;
-}
-
-h2, h3, p, a, button, label, input, select, option {
+* {
     font-family: var(--system-font);
 }
 
-p, a {
-    margin: 0.5rem 0;
-}
-
-html {
-    height: 100%;
-}
-
 body {
-    background: white;
-    padding: 0 20px;
+    margin: 2rem;
+    background: var(--teal-dark);
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+h1, h3 {
+    margin-top: 0;
+}
+
+div#nav, form, div.block {
+    background: var(--teal-light);
+}
+
+form, div#content, h2#books-head {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* nav */
+
+div#nav {
+    margin: -2rem -2rem 0 -2rem;
+    padding: 2rem;
+    border-bottom: 2px solid var(--yellow-light);
+}
+
+div#nav button {
+    display: block;
+    margin: 0 auto;
 }
 
 button {
-    background: var(--bright);
-    color: var(--dark);
-    font-weight: bold;
-    border: 0;
-    border-radius: 100px;
-    padding: 1rem 2rem;
     cursor: pointer;
-}
-
-button:hover {
-    background: var(--bright-hover);
-    color: var(--dark);
-}
-
-#navigation button {
-    margin-bottom: 2rem;
-}
-
-#popup input {
-    width: calc(100% - 2rem);
-}
-
-#popup button {
+    background: white;
+    border: none;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
     width: 100%;
-}
-
-#popup button#add_book {
-    margin-bottom: 0.5rem;
-}
-
-#popup button#cancel_book {
-    margin-bottom: 0.5rem;
-    background: none;
-}
-
-#popup button#cancel_book:hover {
-    text-decoration: underline;
-}
-
-label, input, select {
     display: block;
 }
 
+button#reset, button.unread, button.read {
+    margin-bottom: 1rem;
+}
+
+button#nav-btn, button#add-book {
+    background: var(--yellow-light);
+}
+
+button#nav-btn:hover, button#add-book:hover {
+    background: var(--yellow-dark);
+}
+
+button:hover {
+    background: var(--yellow-light);
+}
+
+/* form */
+
+form {
+    padding: 1rem 0;
+    border-radius: 0 0 1rem 1rem;
+}
+
+form > * {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+form h2 {
+    margin-top: 0;
+    padding: 0 1rem;
+}
+
+form button {
+    margin-bottom: 1rem;
+}
+
 label {
-    margin-bottom: 0.5rem;
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 600;
 }
 
 input, select {
-    margin-bottom: 1rem;
-    border-radius: 1000px;
-    border: 0;
-    background: var(--offwhite);
-    padding: 0.5rem 1rem;
-}
-
-input:last-of-type {
-    margin-bottom: 2rem;
-}
-
-#container {
-    margin: 0 auto;
-    max-width: 1440px;
-}
-
-#navigation {
-    display: flex;
-    flex-flow: column nowrap;
-    border-bottom: 1px solid var(--dark);
-    margin-bottom: 2rem;
-}
-
-#popup {
-    display: none;
-    background: white;
-    padding: 2rem;
-    filter: drop-shadow(0 1rem 3rem rgb(0, 0, 0, 0.3));
+    border: none;
     border-radius: 1rem;
-    z-index: 0;
-    position: absolute;
-    top: 10%;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: 0 auto;
-    width: clamp(20rem, 50%, 30rem);
-    height: clamp(30rem, 50%, 30rem);
-}
-
-#content > div {
+    padding: 0 1rem;
+    height: 34.4px;
+    box-sizing: border-box;
+    display: block;
     margin-bottom: 1rem;
 }
 
-#content > div:last-of-type {
-    margin-bottom: 2rem;
+input {
+    width: calc(100% - 2rem);
 }
 
-.book {
-    background: var(--offwhite);
-    padding: 1rem 1.5rem;
+button#cancel {
+    margin-bottom: 0;
+}
+
+/* books */
+
+div#content {
+    display: block;
+}
+
+h2#books-head {
+    color: white;
+    padding: 2rem 0 1rem 0;
+}
+
+div.block {
+    padding: 1rem;
     border-radius: 1rem;
+    margin: 1rem 0;
 }
 
-.book p:last-of-type {
-    margin-bottom: 1.5rem;
+div.block:first-of-type {
+    margin-top: 0;
 }
 
-.book-buttons {
-    display: flex;
-    flex-flow: row nowrap;
-    gap: 1rem;
-    margin-bottom: 0.5rem;
+div.block:last-of-type {
+    margin-bottom: 0;
 }
 
-.book-buttons button {
-    width: 100%;
+button.read {
+    background: var(--yellow-light);
 }
 
-.book-buttons button:hover {
-    background: var(--offdark);
+button.read:hover {
+    background: var(--yellow-dark);
 }
 
-.unread {
-    background: white;
+button.rm-book {
+    margin-left: 0.5rem;
 }
 
-.read {
-    background: var(--offdark);
-}
 
-.remove-book {
-    background: var(--offdark);
-}
 
-@media screen and (min-width: 600px) {
-    h1 {
+@media screen and (min-width: 740px) {
+    h1, h2 {
         text-align: left;
     }
 
-    #navigation {
+    h1 {
+        margin: 0;
+    }
+
+    div#nav {
+        display: flex;
         flex-flow: row nowrap;
         justify-content: space-between;
         align-items: center;
     }
 
-    #navigation button {
+    div#nav button {
+        display: inline;
+        margin: unset;
+    }
+
+    form {
+        padding: 1rem 0 0 0;
+    }
+
+    button {
+        display: inline;
+        width: unset;
+    }
+
+    button#reset, button.unread, button.read {
         margin-bottom: unset;
     }
 
-    #content > div {
-        margin-bottom: unset;
-    }
-    
-    #content > div:last-of-type {
-        margin-bottom: unset;
+    input {
+        width: 400px;
     }
 
-    #content {
+    div#content {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
         gap: 1rem;
+    }
+
+    div.block {
+        margin: unset;
     }
 }
